@@ -129,17 +129,17 @@ async def stats_handler(c: Client, m: Message):
     memory = psutil.virtual_memory().percent
     disk = psutil.disk_usage("/").percent
     stats = (
-        f"<b>╭「 💠 BOT STATISTICS 」</b>\n"
-        f"<b>│</b>\n"
-        f"<b>├⏳ Bot Uptime : {currentTime}</b>\n"
-        f"<b>├💾 Total Disk Space : {total}</b>\n"
-        f"<b>├📀 Total Used Space : {used}</b>\n"
-        f"<b>├💿 Total Free Space : {free}</b>\n"
-        f"<b>├🔺 Total Upload : {sent}</b>\n"
-        f"<b>├🔻 Total Download : {recv}</b>\n"
-        f"<b>├🖥 CPU : {cpuUsage}%</b>\n"
-        f"<b>├⚙️ RAM : {memory}%</b>\n"
-        f"<b>╰💿 DISK : {disk}%</b>"
+        f"<b>「 💠 BOT STATISTICS 」</b>\n"
+        f"<b></b>\n"
+        f"<b>⏳ Bot Uptime : {currentTime}</b>\n"
+        f"<b>💾 Total Disk Space : {total}</b>\n"
+        f"<b>📀 Total Used Space : {used}</b>\n"
+        f"<b>💿 Total Free Space : {free}</b>\n"
+        f"<b>🔺 Total Upload : {sent}</b>\n"
+        f"<b>🔻 Total Download : {recv}</b>\n"
+        f"<b>🖥 CPU : {cpuUsage}%</b>\n"
+        f"<b>⚙️ RAM : {memory}%</b>\n"
+        f"<b>💿 DISK : {disk}%</b>"
     )
     await m.reply_text(text=stats, quote=True)
 
@@ -430,7 +430,7 @@ async def media_extracter(c: Client, m: Message):
             mid=rmess.id
             file_name = media.file_name
             if file_name is None:
-                await m.reply("File name not found; goto @yashoswalyo")
+                await m.reply("File name not found ")
                 return
             markup = bMaker.makebuttons(
                 set1=["Audio", "Subtitle", "Cancel"],
@@ -488,16 +488,16 @@ async def about_handler(c: Client, m: Message):
         quote=True,
         reply_markup=InlineKeyboardMarkup(
             [
-                [InlineKeyboardButton("👨‍💻Developer👨‍💻", url="https://t.me/yashoswalyo")],
+                [InlineKeyboardButton("Owner", url="https://t.me/Noctophile")],
                 [
                     InlineKeyboardButton(
-                        "🏘Source Code🏘", url="https://github.com/yashoswalyo/MERGE-BOT"
+                        "Source Code", url="https://t.me/Noctophile"
                     ),
                     InlineKeyboardButton(
-                        "🤔Deployed By🤔", url=f"https://t.me/{Config.OWNER_USERNAME}"
+                        "🤔Deployed By", url=f"https://t.me/{Config.OWNER_USERNAME}"
                     ),
                 ],
-                [InlineKeyboardButton("Close 🔐", callback_data="close")],
+                [InlineKeyboardButton("Close ", callback_data="close")],
             ]
         ),
     )
@@ -741,7 +741,7 @@ if __name__ == "__main__":
         with userBot:
             userBot.send_message(
                 chat_id=int(LOGCHANNEL),
-                text="Bot booted with Premium Account,\n\n  Thanks for using <a href='https://github.com/yashoswalyo/merge-bot'>this repo</a>",
+                text="Bot booted with Premium Account,\n\n  Thanks for using <a href='https://t.me/Noctophile'>this repo</a>",
                 disable_web_page_preview=True,
             )
             user = userBot.get_me()
